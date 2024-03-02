@@ -8,7 +8,7 @@ export const comparePasswords = (password: string, hash: string) => bcrypt.compa
 export const hashPassword = (password: string) => bcrypt.hash(password, 5);
 
 export const createJWT = ({ id, username }: User) => {
-	const token = jwt.sign({ id, username }, process.env.JWT_SECRET);
+	const token = jwt.sign({ id, username }, process.env.JWT_SECRET, { expiresIn: '24h' });
 	return token;
 };
 
