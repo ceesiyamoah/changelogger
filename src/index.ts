@@ -1,6 +1,7 @@
 import { User } from '@prisma/client';
 import app from './server';
 import * as dotenv from 'dotenv';
+import config from './config';
 dotenv.config();
 
 declare module 'express-serve-static-core' {
@@ -9,6 +10,6 @@ declare module 'express-serve-static-core' {
 	}
 }
 
-app.listen(3000, () => {
+app.listen(config.port, () => {
 	console.log('Running on http://localhost:' + 3000);
 });
